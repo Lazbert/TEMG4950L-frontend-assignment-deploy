@@ -3,7 +3,6 @@ import streamlit as st
 
 # home page goes here
 st.set_page_config("TEMG4950L: Self-study Dashboard", page_icon="./assets/icons/IconDashboard.png", layout="wide")
-st.write("Testing")
 
 # header section
 st.title("Home Page")
