@@ -67,6 +67,18 @@ def get_crypto_plot(selected_crypto: list[str], time_frame: str, tab: str="High"
         date_x_axis = crypto_df[time_frame]
         fig = fig.add_trace(go.Line(x=date_x_axis, y=crypto_df[tab], name=crypto))  # adding suplots to create a multi-series graph
     
+    yaxis_title = None
+    if tab in ["High", "Low", "Open", "Close"]:
+        yaxis_title = f"{tab} Price (in USD)"
+    elif tab == "Volume":
+        yaxis_title = f"{tab} (in crypto unit per day)"
+    else:
+        yaxis_title = f"{tab} (in USD)"
+    fig.update_layout(
+        xaxis_title=f"Time ({time_frame})",
+        yaxis_title=yaxis_title,
+        legend_title="Cryptocurrency",
+    )
     st.plotly_chart(fig, use_container_width=True)
 
 # === Widgets ===
