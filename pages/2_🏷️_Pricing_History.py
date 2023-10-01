@@ -26,7 +26,7 @@ def load_crypto_data(name: str):
     csv_name = f"coin_{name}.csv"
     print(f"Reading {csv_name} data")
     if csv_name in os.listdir(DATA_DIR):
-        df = pd.read_csv(f"{DATA_DIR}\{csv_name}", index_col="SNo")
+        df = pd.read_csv(f"{DATA_DIR}/{csv_name}", index_col="SNo")
         
         # process date column, note the given data is in daily interval
         df["Date"] = pd.to_datetime(df["Date"])
